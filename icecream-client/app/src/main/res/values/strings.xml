@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Mmm - Ice Cream</string>
+
+    <string name="welcome_message">Welcome!</string>
+    <string name="action_settings">Settings</string>
+
+    <color name="black">#000000</color>
+    <color name="grey">#555555</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#009900</color>
+    <string name="title_activity_checkout">CheckoutActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_result">ResultActivity</string>
+</resources>
