@@ -1,44 +1,32 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@drawable/dark_gradient"
-    android:clickable="false">
-
-    <TextView
-        android:id="@+id/netConnection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="#FF0000"
-        android:textColor="#FFF"
-        android:textSize="15dp"
-        android:layout_marginBottom="5dp"
-        android:text="is connected?" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dark_gradient">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/tvStep1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="@string/tvStep1"
             android:textColor="@color/white"
-            android:text="STEP 1 (flavor)"
-            android:textSize="50dp"
-            android:layout_marginBottom="5dp"/>
+            android:textSize="50sp" />
 
         <HorizontalScrollView
             android:id="@+id/hzScrollView"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:background="@android:color/transparent">
+            android:background="?android:selectableItemBackground">
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -46,30 +34,40 @@
                     android:id="@+id/btnDarkChocMint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/selector_dark_choc_peppermint"/>
+                    android:background="?android:selectableItemBackground"
+                    android:contentDescription="@string/btnDarkChocMint"
+                    android:onClick="selectFlavour"
+                    android:src="@drawable/selector_dark_choc_peppermint" />
 
                 <ImageButton
                     android:id="@+id/btnMatchaGreen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/selector_matcha_green"
-                    />
+                    android:background="?android:selectableItemBackground"
+                    android:contentDescription="@string/btnMatchaGreenTea"
+                    android:onClick="selectFlavour"
+                    android:src="@drawable/selector_matcha_green" />
 
                 <ImageButton
                     android:id="@+id/btnPumpkinPie"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/selector_pumpkin_pie"
-                    />
+                    android:background="?android:selectableItemBackground"
+                    android:contentDescription="@string/btnPumpkinPie"
+                    android:onClick="selectFlavour"
+                    android:src="@drawable/selector_pumpkin_pie" />
 
                 <ImageButton
-                    android:id="@+id/btnStrwaberryBasis"
+                    android:id="@+id/btnStrawberryBasil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/selector_strawberry_basil"
-                    />
+                    android:background="?android:selectableItemBackground"
+                    android:contentDescription="@string/btnStrawberryBasil"
+                    android:onClick="selectFlavour"
+                    android:src="@drawable/selector_strawberry_basil" />
 
             </LinearLayout>
+
         </HorizontalScrollView>
 
         <TextView
@@ -77,11 +75,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:text="STEP 2 (style)"
-            android:textSize="50dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:text="@string/tvStep2"
+            android:textColor="@color/white"
+            android:textSize="50sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -91,9 +89,11 @@
                 android:id="@+id/btnWaffleCone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/selector_waffle_cone"
                 android:layout_weight="1"
-                />
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="@string/btnWaffleCone"
+                android:onClick="selectStyle"
+                android:src="@drawable/selector_waffle_cone" />
 
             <Space
                 android:layout_width="5dp"
@@ -103,9 +103,11 @@
                 android:id="@+id/btnBowl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/selector_ice_cream_bowl"
                 android:layout_weight="1"
-                />
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="@string/btnBowl"
+                android:onClick="selectStyle"
+                android:src="@drawable/selector_ice_cream_bowl" />
         </LinearLayout>
 
         <TextView
@@ -113,26 +115,27 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:text="STEP 3 (pay)"
-            android:textSize="50dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
-<!--
-        <EditText
-            android:id="@+id/etName"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tvName"/>
--->
+            android:text="@string/tvStep3"
+            android:textColor="@color/white"
+            android:textSize="50sp" />
+        <!--
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvName"/>
+        -->
         <ImageButton
             android:id="@+id/btnCheckout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:background="?android:selectableItemBackground"
+            android:onClick="selectCheckout"
             android:src="@drawable/selector_checkout"
-            android:text="POST"
-            android:background="@null" />
+            android:text="@string/btnCheckout" />
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

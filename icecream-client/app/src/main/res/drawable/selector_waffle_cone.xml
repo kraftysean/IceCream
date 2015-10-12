@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true" >
-        <bitmap android:src="@drawable/waffle_cone_pressed" />
-    </item>
-    <item android:state_focused="true" >
-        <bitmap android:src="@drawable/waffle_cone_focused" />
-    </item>
-    <item >
-        <bitmap android:src="@drawable/waffle_cone" />
-    </item>
+    <item android:state_activated="true" android:drawable="@drawable/waffle_cone_pressed" />
+    <item android:state_pressed="true" android:drawable="@drawable/waffle_cone_pressed" />
+    <item android:drawable="@drawable/waffle_cone" />
 </selector>

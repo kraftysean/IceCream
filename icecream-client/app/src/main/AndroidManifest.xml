@@ -8,44 +8,35 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
+        android:label="Mmmm\nIce Cream"
         android:theme="@style/AppTheme" >
 
         <!-- Splash screen -->
         <activity
             android:name=".SplashScreenActivity"
-            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <!--
-        <receiver
-            android:name="com.tasty.icecream.util.NetworkMonitor"
-            android:label="NetworkMonitor" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-            </intent-filter>
-        </receiver>
-        -->
+            android:label="@string/title_activity_main" />
+
+        <!-- Checkout Activity -->
         <activity
             android:name=".CheckoutActivity"
-            android:label="@string/title_activity_checkout" >
-        </activity>
+            android:label="@string/title_activity_checkout"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <!-- Result Activity -->
         <activity
             android:name=".ResultActivity"
-            android:label="@string/title_activity_result" >
-        </activity>
+            android:label="@string/title_activity_result" />
     </application>
 
 </manifest>

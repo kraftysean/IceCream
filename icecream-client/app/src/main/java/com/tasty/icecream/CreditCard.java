@@ -5,32 +5,49 @@ package com.tasty.icecream;
  */
 public class CreditCard {
 
-    private String merchantId;
-    private String name;
-    private String country;
-    private String twitter;
+    private String cardNumber;
+    private String cardExpiryMonth;
+    private String cardExpiryYear;
+    private String cardCVV2;
+    private String amount;
 
-    public String getName() {
-        return name;
+    public String getCardNumber() {
+        return cardNumber;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCardExpiryMonth() {
+        return cardExpiryMonth;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCardExpiryMonth(String cardExpiryMonth) {
+        this.cardExpiryMonth = cardExpiryMonth;
     }
 
-    public String getTwitter() {
-        return twitter;
+    public String getCardExpiryYear() {
+        return cardExpiryYear;
     }
 
-    public void setTwitter(String twitter) {
-        this.twitter = twitter;
+    public void setCardExpiryYear(String cardExpiryYear) {
+        this.cardExpiryYear = cardExpiryYear;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getCardCVV2() {
+        return cardCVV2;
+    }
+
+    public void setCardCVV2(String cardCVV2) {
+        this.cardCVV2 = cardCVV2;
     }
 }
