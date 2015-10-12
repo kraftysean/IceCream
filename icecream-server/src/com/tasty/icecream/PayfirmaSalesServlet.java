@@ -1,5 +1,9 @@
 package com.tasty.icecream;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
@@ -49,9 +53,6 @@ public class PayfirmaSalesServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_OK);
             OutputStreamWriter writer = new OutputStreamWriter(response.getOutputStream());
 
-//            Integer doubledValue = Integer.parseInt(receivedString) * 2;
-
-//            writer.write(doubledValue.toString());
             writer.write(payfirmaResponse.get(0));
             writer.flush();
             writer.close();
