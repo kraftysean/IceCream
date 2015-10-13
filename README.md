@@ -3,8 +3,8 @@
 Sample client-server project that demonstrates the use of the Payfirma API
 
 For quick setup use the following two files
-- Server: PayfirmaSalesServlet.class
-- Client: app-release.apk
+- Server: PayfirmaSalesServlet.class (../icecream-server/classes/com/tasty/icecream/PayfirmaSalesServlet.class)
+- Client: app-release.apk (../icecream-client/app/app-release.apk)
 
 ==========================================
 Instructions for running the Wec Container
