@@ -53,7 +53,7 @@ public class ResultActivity extends Activity {
 
     public void selectExit(View v) {
         finish();
-        System.exit(0);
+//        System.exit(0);
     }
 
     public void selectSaveReceipt(View v) {

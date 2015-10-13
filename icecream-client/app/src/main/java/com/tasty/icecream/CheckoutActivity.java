@@ -50,11 +50,16 @@ public class CheckoutActivity extends Activity {
     String selectedStyle;
     String totalAmount;
     String httpResult;
+    String serverUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
+
+        String serverIP = System.getProperty("SERVER_IP");
+        String serverPort = System.getProperty("SERVER_PORT");
+        serverUrl = String.format("http://%s:%s/icecream-server/Sales", serverIP, serverPort);
 
         netConnection = (TextView) findViewById(R.id.netConnection);
         Bundle extras = getIntent().getExtras();
@@ -123,7 +128,9 @@ public class CheckoutActivity extends Activity {
 
                     try {
                         // TODO: URL not secure - could use something like WebView
-                        URL url = new URL("http://192.168.1.86:8080/icecream-server/Sales");
+
+//                        URL url = new URL("http://192.168.1.86:8080/icecream-server/Sales");
+                        URL url = new URL(serverUrl);
                         URLConnection connection = url.openConnection();
 
                         String cNumber = etNumber.getText().toString();

@@ -1,5 +1,9 @@
 package com.tasty.icecream;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -7,7 +11,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class PayfirmaTest {
 
@@ -62,5 +65,17 @@ public class PayfirmaTest {
                 }
             }
             System.out.println(records);
+
+        String parsedResponse = "";
+        JSONParser parser = new JSONParser();
+        try {
+            Object obj = parser.parse(records.get(0));
+            JSONObject jObject = (JSONObject) obj;
+            parsedResponse = (String) jObject.get("result");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Result:" + parsedResponse);
+
     }
 }

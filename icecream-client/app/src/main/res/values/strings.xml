@@ -54,4 +54,6 @@
     <string name="tvApprovedResult">Thank you.  We have received your order and your ice-cream will be waiting for you at the end of the counter.  Enjoy :)</string>
     <string name="tvGoneWrongResult">Oh no!  Something\'s gone wrong.  I hope we haven\'t run out of ice-cream !!!</string>
     <string name="tvDeclinedResult">Oh dear!  It looks like you didn\'t pay your bill on time...zzz!</string>
+    <string name="tvServerPort">Port:</string>
+    <string name="tvServerIP">Server IP:</string>
 </resources>
