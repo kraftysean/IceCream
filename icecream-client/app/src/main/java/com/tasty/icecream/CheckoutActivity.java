@@ -1,8 +1,10 @@
 package com.tasty.icecream;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
@@ -19,12 +21,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tasty.icecream.util.FourDigitCardFormatWatcher;
+import com.tasty.icecream.util.NetworkStatus;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
@@ -35,17 +37,10 @@ import java.util.List;
 public class CheckoutActivity extends Activity {
 
     private NetworkReceiver nReceiver;
-    private static final String MERCHANT_ID = "a3e5588422";
-    private static final String API_KEY = "d7c566842e19aa2103ce15ffd06657ea9701bcf5";
-    private static final String ENCRYPTION_KEY = "2d2d2d2d2d424547494e205055424c4943204b45592d2d2d2d2d4d494942496a414e42676b71686b6947397730424151454641414f43415138414d49494243674b434151454177454f6e2f7643387732586e4354395467757559434e6d4772682b626d48546972563732354a773979597771574950647a6978623353367665652b6853365962776d475171707457446d35667a56736c754367516a794d41315041352b6b3063772f774a677262756b51373853394b6f4a5a4d34527a7a6571736d5039614f5063635846454a6961644a73526a3659333837306838396f3255796b52747230474568326f6d7159585844535a413174534c786b556b765461516b4d2b456266574e4971554b35466e515734675555563643754d4479352b6b554849386c4b7862385a2f556e6a6272734c485338696f6a5162414b74437a79754267707852704f385a527261422b5962722f65367073504461435074496e364b514f4555362b6f7537686b6433505a756a502b3130786152695a7361365637763647644c4f5a645a336f786b2b5359694150302f374358444a332b6e774944415141422d2d2d2d2d454e44205055424c4943204b45592d2d2d2d2d";
-    private static final boolean TEST_MODE = true;
-    private static final String PAYFIRMA_URL = "https://ecom.payfirma.com/sale/";
-    private static final String PAYFIRMA_URL_FULL = "https://ecom.payfirma.com/sale/?merchant_id=a3e5588422&key=d7c566842e19aa2103ce15ffd06657ea9701bcf5&test_mode=true&amount=11.34&card_number=4111111111111111&card_expiry_month=12&card_expiry_year=34&cvv2=123";
     TextView netConnection, tvOrder, tvOrderDetail, tvTotal, tvTotalDetail, tvNumber, tvMonth, tvYear, tvCVV2;
     EditText etNumber, etMonth, etYear, etCVV2;
     ImageView ivOrder;
     ImageButton btnPayNow;
-    CreditCard cCard;
     String selectedFlavour;
     String selectedStyle;
     String totalAmount;
@@ -127,9 +122,10 @@ public class CheckoutActivity extends Activity {
                 public void run() {
 
                     try {
-                        // TODO: URL not secure - could use something like WebView
+                        // TODO: URL not secure - need to verify Server Certificate in order to use https
+                        // If we want to tokenize the credit card details, we'll need to run in WebView to enable javascript
+                        // https://developer.android.com/guide/webapps/webview.html
 
-//                        URL url = new URL("http://192.168.1.86:8080/icecream-server/Sales");
                         URL url = new URL(serverUrl);
                         URLConnection connection = url.openConnection();
 
@@ -139,9 +135,12 @@ public class CheckoutActivity extends Activity {
                         String cYear = etMonth.getText().toString();
                         String cCVV2 = etCVV2.getText().toString();
                         String amount = tvTotalDetail.getText().toString();
+                        String style = selectedStyle;
+                        String flavour = selectedFlavour;
+
                         String inputString = String.format(
-                                "card_number=%s&card_expiry_month=%s&card_expiry_year=%s&cvv2=%s&amount=%s",
-                                cNumber, cMonth, cYear, cCVV2, amount);
+                                "card_number=%s&card_expiry_month=%s&card_expiry_year=%s&cvv2=%s&amount=%s&-style=%s&flavour=%s",
+                                cNumber, cMonth, cYear, cCVV2, amount, style, flavour);
 
                         Log.d("inputString", inputString);
 
@@ -163,6 +162,7 @@ public class CheckoutActivity extends Activity {
                         if(httpResponse != null) {
                             Log.d("Response: ", "> " + httpResponse.get(0));
                             try {
+                                // Parse the json to get the response from the server
                                 JSONObject jObj = new JSONObject(httpResponse.get(0));
                                 httpResult = jObj.getString("result");
                                 Log.d("JSON-RESULT: ", "> " +httpResult);

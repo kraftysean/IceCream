@@ -1,12 +1,9 @@
-package com.tasty.icecream;
+package com.tasty.icecream.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-/**
- * Created by sean on 09/10/15.
- */
 public class NetworkStatus {
 
     public static int TYPE_WIFI = 1;

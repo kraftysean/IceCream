@@ -109,8 +109,6 @@ public class MainActivity extends Activity {
 
     // Handles the onClick functionality for the Style icons
     public void selectStyle(View v) {
-//        selectedStyle = v.isActivated() ? "" : (String) v.getContentDescription();
-
         switch (v.getId()) {
             case R.id.btnWaffleCone:
                 v.setActivated(!v.isActivated()); // Toggle on/off
