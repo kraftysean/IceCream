@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tasty" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="Mmmm\nIce Cream"
+        android:theme="@style/AppTheme" >
+
+        <!-- Splash screen -->
+        <activity
+            android:name="com.tasty.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main Activity -->
+        <activity
+            android:name="com.tasty.MainActivity"
+            android:label="@string/title_activity_main" />
+
+        <!-- Checkout Activity -->
+        <activity
+            android:name="com.tasty.CheckoutActivity"
+            android:label="@string/title_activity_checkout"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <!-- Result Activity -->
+        <activity
+            android:name="com.tasty.ResultActivity"
+            android:label="@string/title_activity_result" />
+    </application>
+
+</manifest>
