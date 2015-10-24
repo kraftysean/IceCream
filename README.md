@@ -22,6 +22,3 @@ Required JARs:
 - stripe-java-1.37.1.jar
 
 NOTE: If trying to run client from emulator, localhost's IP address should be set to 10.0.2.2
-~                                                                                                                                                    
-"ReadMe.MD" 19L, 741C                                                                                                              1,1           All
-
