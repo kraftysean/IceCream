@@ -1,6 +1,6 @@
 # IDEA
-/client/.idea/*
-/server/.idea/*
+client/.idea/*
+server/.idea/*
 
-/ews/*
+ews/*
 
