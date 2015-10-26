@@ -50,7 +50,6 @@ class StripeWebServiceTask extends AsyncTask<Object, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-//        Toast.makeText(callerActivity, result, Toast.LENGTH_LONG).show();
         Intent i = new Intent(callerActivity, ResultActivity.class);
         i.putExtra("http-result", result);
         callerActivity.startActivity(i);
@@ -58,6 +57,10 @@ class StripeWebServiceTask extends AsyncTask<Object, Void, String> {
     }
 
     private String authorizeStripePayment(String hostUrl, final JSONObject stripeParams) throws IOException, JSONException {
+        // TODO: Update to send request using Volley
+        // http://developer.android.com/training/volley/simple.html
+        // Use JsonObjectRequest - http://stackoverflow.com/questions/23220695/send-post-request-with-json-data-using-volley
+
         InputStream is = null;
         StringBuilder httpResponse = new StringBuilder();
         try {
