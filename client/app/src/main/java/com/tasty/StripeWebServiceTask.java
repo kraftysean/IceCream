@@ -5,6 +5,13 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,6 +24,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 class StripeWebServiceTask extends AsyncTask<Object, Void, String> {
@@ -41,14 +50,14 @@ class StripeWebServiceTask extends AsyncTask<Object, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(callerActivity, result, Toast.LENGTH_LONG).show();
+//        Toast.makeText(callerActivity, result, Toast.LENGTH_LONG).show();
         Intent i = new Intent(callerActivity, ResultActivity.class);
         i.putExtra("http-result", result);
         callerActivity.startActivity(i);
         callerActivity.finish();
     }
 
-    private String authorizeStripePayment(String hostUrl, JSONObject stripeParams) throws IOException, JSONException {
+    private String authorizeStripePayment(String hostUrl, final JSONObject stripeParams) throws IOException, JSONException {
         InputStream is = null;
         StringBuilder httpResponse = new StringBuilder();
         try {
@@ -76,8 +85,7 @@ class StripeWebServiceTask extends AsyncTask<Object, Void, String> {
 
             BufferedReader input = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String strLine;
-            while ((strLine = input.readLine()) != null)
-            {
+            while ((strLine = input.readLine()) != null) {
                 httpResponse.append(strLine);
             }
             input.close();

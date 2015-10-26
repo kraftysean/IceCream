@@ -34,8 +34,8 @@ public class CheckoutActivity extends Activity {
     private static final String TAG = CheckoutActivity.class.getSimpleName();
 
     public static final String PUBLISHABLE_KEY = "pk_test_5aP62wpdLE9i8aeUyhpewZb5";
-    public static final String API_HOST = "http://10.0.2.2:8080/icecream/Sales";  // Using 10.0.2.2 for emulator
-    //  public static final String API_HOST = "http://icecream-kraftys.rhcloud.com/"; // Remote server hosted on openshift.redhat.com
+    public static final String API_HOST = "http://ews-kraftys.rhcloud.com/icecream/Sales";  // remote server
+//    public static final String API_HOST = "http://10.0.2.2:8080/icecream/Sales";  // Use 10.0.2.2:8080 for emulator
     private NetworkReceiver nReceiver;
     TextView netConnection, tvOrder, tvOrderDetail, tvTotal, tvTotalDetail, tvNumber, tvMonth, tvYear, tvCVV2;
     EditText etNumber, etMonth, etYear, etCVV2;
