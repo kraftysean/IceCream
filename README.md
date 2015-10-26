@@ -1,5 +1,5 @@
 # IceCream
-Sample client-server project that uses the Strip API for payment processing
+Sample client-server project using Stripe API
 
 ========================================
 Instructions for running the Java server
