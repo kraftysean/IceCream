@@ -44,21 +44,16 @@ public class ResultActivity extends Activity {
                 tvResult.setText(R.string.tvApprovedResult);
                 btnExit.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.exit));
                 btnSaveReceipt.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.save_receipt));
-            } else if (httpResult.equalsIgnoreCase(getString(R.string.trxDeclined))) {
+            } else  {
                 ivResult.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.ice_cream_fail));
                 tvResult.setText(R.string.tvDeclinedResult);
-                btnExit.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.exit));
-            } else {
-                ivResult.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.icecream_problem));
-                tvResult.setText(R.string.tvGoneWrongResult);
                 btnExit.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.exit));
             }
         }
         else {
-            ivResult.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.icecream_problem));
+            ivResult.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.ice_cream_problem));
             tvResult.setText(R.string.tvGoneWrongResult);
             btnExit.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.exit));
-
         }
     }
 

@@ -6,7 +6,7 @@
     <color name="green">#009900</color>
     <color name="light_blue">#3399FF</color>
 
-    <string name="app_name">Mmm - Ice Cream</string>
+    <string name="app_name">Mmm… Ice Cream</string>
 
     <string name="welcome_message">Welcome!</string>
     <string name="action_settings">Settings</string>
